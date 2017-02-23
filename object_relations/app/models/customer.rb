@@ -30,6 +30,10 @@ class Customer
 
 end
 
+bob = Customer.new("bob")
+cucina = Restaurant.new("Cucina")
+bob.add_review("I hate this place", cucina)
+
 # Customer.new('bob')
   # <>
 # customer = customer.add_review('it was good', Restaurant.new)
