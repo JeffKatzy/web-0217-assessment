@@ -2,12 +2,13 @@ require 'byebug'
 require_relative './restaurant.rb'
 require_relative './review.rb'
 class Customer
-  attr_accessor :name
+  attr_accessor :name, :reviews, :restaurants
   @@all=[]
-  @@reviews=[]
 
   def initialize(name)
     @name = name
+    @reviews=[]
+    @restaurants=[]
     @@all << self
   end
 
@@ -20,20 +21,15 @@ class Customer
   end
 
   def add_review(review, restaurant)
-    rev = Review.new(review)
-    rev.customer = self
-    rev.restaurant = restaurant
-    @@reviews << rev
+    rev = Review.new(review: review, customer: self,restaurant: restaurant)
+    @reviews << rev
+    @restaurants << restaurant
     restaurant.reviews << rev
     restaurant.customers << self
   end
 
 end
 
-bob = Customer.new('bob')
-rest1 = Restaurant.new('rest1')
-bob.add_review("it was good", rest1)
-bob.add_review("it was bad", Restaurant.new('rest2'))
 # Customer.new('bob')
   # <>
 # customer = customer.add_review('it was good', Restaurant.new)

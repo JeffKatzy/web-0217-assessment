@@ -1,11 +1,11 @@
 class Restaurant
-  attr_accessor :name
+  attr_accessor :name, :reviews, :customers
   @@all = []
-  CUSTOMERS=[]
-  REVIEWS=[]
 
   def initialize(name)
     @name=name
+    @reviews=[]
+    @customers=[]
     @@all<<self
   end
 
@@ -16,13 +16,4 @@ class Restaurant
   def self.find_by_name(name)
     this = self.all.each.find{|restaurant| restaurant=name}
   end
-
-  def reviews
-    REVIEWS
-  end
-
-  def customers
-    CUSTOMERS
-  end
-
 end
