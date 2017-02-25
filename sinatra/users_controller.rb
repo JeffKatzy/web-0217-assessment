@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   end
 
   post '/users' do
-    Users.create(params)
-    redirect '/users'
+    @user = Users.create(params)
+    redirect "/users/#{@user.id}"
   end
   # create
 
