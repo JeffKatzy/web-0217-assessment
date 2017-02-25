@@ -79,5 +79,6 @@ WHERE review.id = ?"
 
 # Review#restaurant
 "SELECT restaurant.name FROM review INNER JOIN restaurant
+SELECT restaurants.*
 ON review.restaurant_id = restaurant.id
 WHERE review.id=?"
