@@ -23,6 +23,7 @@ class Customer
   def add_review(review, restaurant)
     rev = Review.new(review: review, customer: self,restaurant: restaurant)
     @reviews << rev
+#    @reviews <<  review
     @restaurants << restaurant
     restaurant.reviews << rev
     restaurant.customers << self
